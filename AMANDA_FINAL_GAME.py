@@ -274,6 +274,11 @@ while inPlay:
         drawTitleScreen()
         keys = pygame.key.get_pressed()
 
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: # checks x button
+                titleScreen = False
+                inPlay = False
+
         #quit
         if keys[pygame.K_ESCAPE]:
             titleScreen = False
@@ -318,7 +323,11 @@ while inPlay:
         redrawGameWindow()
         clock.tick(FPS)
 
-        pygame.event.get()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: # checks x button
+                inGame = False
+                inPlay = False
 
         #quit game
         keys = pygame.key.get_pressed()
@@ -497,6 +506,11 @@ while inPlay:
         pygame.event.get()
         drawEndScreen()
         keys = pygame.key.get_pressed()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: # checks x button
+                endScreen = False
+                inPlay = False
         
         #quit
         if keys[pygame.K_ESCAPE]:
